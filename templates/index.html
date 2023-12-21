@@ -1,5 +1,7 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
 
-        
         <!-- Main Slider Start -->
         <div class="header">
             <div class="container-fluid">
@@ -7,56 +9,25 @@
                     <div class="col-md-3">
                         <nav class="navbar bg-light">
                             <ul class="navbar-nav">
+                                {% for cat in categories %}
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#"><i class="fa fa-home"></i>Home</a>
+                                    <a class="nav-link" href="#"><i class="fa fa-{{cat.logo}}"></i>{{cat.name}}</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#"><i class="fa fa-shopping-bag"></i>Best Selling</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#"><i class="fa fa-plus-square"></i>New Arrivals</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#"><i class="fa fa-female"></i>Fashion & Beauty</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#"><i class="fa fa-child"></i>Kids & Babies Clothes</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#"><i class="fa fa-tshirt"></i>Men & Women Clothes</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#"><i class="fa fa-mobile-alt"></i>Gadgets & Accessories</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#"><i class="fa fa-microchip"></i>Electronics & Accessories</a>
-                                </li>
+                                {% endfor %}
                             </ul>
                         </nav>
                     </div>
                     <div class="col-md-6">
                         <div class="header-slider normal-slider">
+                            {% for slider in sliders %}
                             <div class="header-slider-item">
-                                <img src="img/slider-1.jpg" alt="Slider Image" />
+                                <img src="{{slider.image.url}}" alt="Slider Image" />
                                 <div class="header-slider-caption">
-                                    <p>Some text goes here that describes the image</p>
+                                    <p>{{slider.title}}</p>
                                     <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Shop Now</a>
                                 </div>
                             </div>
-                            <div class="header-slider-item">
-                                <img src="img/slider-2.jpg" alt="Slider Image" />
-                                <div class="header-slider-caption">
-                                    <p>Some text goes here that describes the image</p>
-                                    <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Shop Now</a>
-                                </div>
-                            </div>
-                            <div class="header-slider-item">
-                                <img src="img/slider-3.jpg" alt="Slider Image" />
-                                <div class="header-slider-caption">
-                                    <p>Some text goes here that describes the image</p>
-                                    <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Shop Now</a>
-                                </div>
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -78,23 +49,20 @@
                 </div>
             </div>
         </div>
-        <!-- Main Slider End -->      
-        
+        <!-- Main Slider End -->
+
         <!-- Brand Start -->
         <div class="brand">
             <div class="container-fluid">
                 <div class="brand-slider">
-                    <div class="brand-item"><img src="img/brand-1.png" alt=""></div>
-                    <div class="brand-item"><img src="img/brand-2.png" alt=""></div>
-                    <div class="brand-item"><img src="img/brand-3.png" alt=""></div>
-                    <div class="brand-item"><img src="img/brand-4.png" alt=""></div>
-                    <div class="brand-item"><img src="img/brand-5.png" alt=""></div>
-                    <div class="brand-item"><img src="img/brand-6.png" alt=""></div>
+                    {% for brand in brands %}
+                    <div class="brand-item"><img src="{{brand.image.url}}" alt=""></div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
-        <!-- Brand End -->      
-        
+        <!-- Brand End -->
+
         <!-- Feature Start-->
         <div class="feature">
             <div class="container-fluid">
@@ -138,8 +106,8 @@
                 </div>
             </div>
         </div>
-        <!-- Feature End-->      
-        
+        <!-- Feature End-->
+
         <!-- Category Start-->
         <div class="category">
             <div class="container-fluid">
@@ -191,8 +159,8 @@
                 </div>
             </div>
         </div>
-        <!-- Category End-->       
-        
+        <!-- Category End-->
+
         <!-- Call to Action Start -->
         <div class="call-to-action">
             <div class="container-fluid">
@@ -206,8 +174,8 @@
                 </div>
             </div>
         </div>
-        <!-- Call to Action End -->       
-        
+        <!-- Call to Action End -->
+
         <!-- Featured Product Start -->
         <div class="featured-product product">
             <div class="container-fluid">
@@ -358,8 +326,8 @@
                 </div>
             </div>
         </div>
-        <!-- Featured Product End -->       
-        
+        <!-- Featured Product End -->
+
         <!-- Newsletter Start -->
         <div class="newsletter">
             <div class="container-fluid">
@@ -376,8 +344,8 @@
                 </div>
             </div>
         </div>
-        <!-- Newsletter End -->        
-        
+        <!-- Newsletter End -->
+
         <!-- Recent Product Start -->
         <div class="recent-product product">
             <div class="container-fluid">
@@ -529,7 +497,7 @@
             </div>
         </div>
         <!-- Recent Product End -->
-        
+
         <!-- Review Start -->
         <div class="review">
             <div class="container-fluid">
@@ -600,5 +568,6 @@
                 </div>
             </div>
         </div>
-        <!-- Review End -->        
-        
+        <!-- Review End -->
+
+{% endblock %}
