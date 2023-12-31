@@ -94,9 +94,12 @@
                         </div>
                     </div>
                     <div class="col-md-6">
+
                         <div class="search">
-                            <input type="text" placeholder="Search">
-                            <button><i class="fa fa-search"></i></button>
+                            <form method = 'GET' action = '/search'>
+                                <input name = "query" type="text" placeholder="Search" required>
+                                <button type = "submit"><i class="fa fa-search"></i></button>
+                            </form>
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -154,9 +157,9 @@
                         <div class="footer-widget">
                             <h2>Company Info</h2>
                             <ul>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Terms & Condition</a></li>
+                                {% for company in company_info %}
+                                <li><a href="#">{{company.name}}</a></li>
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>
@@ -165,9 +168,10 @@
                         <div class="footer-widget">
                             <h2>Purchase Info</h2>
                             <ul>
-                                <li><a href="#">Pyament Policy</a></li>
-                                <li><a href="#">Shipping Policy</a></li>
-                                <li><a href="#">Return Policy</a></li>
+                                {% for purchase in purchase_info %}
+                                <li><a href="#">{{purchase.name}}</a></li>
+                                {% endfor %}
+
                             </ul>
                         </div>
                     </div>

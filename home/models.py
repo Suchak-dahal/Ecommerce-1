@@ -68,6 +68,20 @@ class Contact(models.Model):
         return self.name
 
 
+class CompanyInfo(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+
+class PurchaseInfo(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+
 LABEL = (('new', 'new'), ('sale', 'sale'), ('hot', 'hot'))
 STOCK = (('In Stock', 'In Stock'), ('Out of Stock', 'Out of Stock'))
 
