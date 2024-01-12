@@ -12,4 +12,6 @@ admin.site.register(Feedback)
 admin.site.register(ContactInfo)
 admin.site.register(CompanyInfo)
 admin.site.register(PurchaseInfo)
+admin.site.register(ProductReview)
+admin.site.register(Cart)
 
